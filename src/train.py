@@ -121,7 +121,7 @@ class ProjectAgent:
     def __init__(self):
         # Simple initialization of the agent with the configuration
         self.get_config()
-        self.path = os.getcwd() + "\\model.pt"
+        self.path = os.path.join(os.path.dirname(__file__), "model.pt")
         self.nb_actions = self.config['n_action']
         self.model = self.get_DQN()
         self.gamma = self.config['gamma']
