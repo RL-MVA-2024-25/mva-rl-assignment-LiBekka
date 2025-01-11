@@ -77,7 +77,7 @@ class ProjectAgent:
         cpu_device = torch.device("cpu")
         DQN = self.get_DQN()
         self.model = DQN.to(cpu_device)
-        self.model.load_state_dict(torch.load(self.path, map_location=cpu_device, weights_only=True))
+        self.model.load_state_dict(torch.load("src/model.pt", map_location=cpu_device, weights_only=True))
         self.model.eval()
         return
 
