@@ -77,7 +77,7 @@ class ProjectAgent:
         cpu_device = torch.device("cpu")
         DQN = self.get_DQN()
         self.model = DQN.to(cpu_device)
-        self.model.load_state_dict(torch.load("src/model.pt", map_location=cpu_device, weights_only=True))
+        self.model.load_state_dict(torch.load(self.path, map_location=cpu_device, weights_only=True))
         self.model.eval()
         return
 
@@ -121,7 +121,7 @@ class ProjectAgent:
     def __init__(self):
         # Simple initialization of the agent with the configuration
         self.get_config()
-        self.path = os.path.join(os.path.dirname(__file__), "model.pt")
+        self.path = "src/model.pt"
         self.nb_actions = self.config['n_action']
         self.model = self.get_DQN()
         self.gamma = self.config['gamma']
